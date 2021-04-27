@@ -19,7 +19,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tvh-74-kY8">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="ACy-21-i5k">
                                     <size key="itemSize" width="389" height="272"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
@@ -63,7 +63,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
                         <constraints>
                             <constraint firstItem="tvh-74-kY8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4zq-Sa-6DY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tvh-74-kY8" secondAttribute="bottom" id="fGH-2U-cnO"/>
@@ -71,15 +71,18 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tvh-74-kY8" secondAttribute="trailing" id="ugl-TO-sgL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="xro-hB-vXy">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="xro-hB-vXy">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Py3-Sb-ox6">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" id="Py3-Sb-ox6">
                             <rect key="frame" x="161.5" y="5.5" width="91" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBlueColor"/>
                             <segments>
                                 <segment title="Grid"/>
                                 <segment title="List"/>
                             </segments>
+                            <color key="tintColor" systemColor="secondarySystemBackgroundColor"/>
+                            <color key="selectedSegmentTintColor" systemColor="systemPurpleColor"/>
                             <connections>
                                 <action selector="changeSegmentedControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="Vnz-SV-Eff"/>
                             </connections>
@@ -107,51 +110,74 @@
                                     <constraint firstAttribute="width" secondItem="DJB-i6-dvr" secondAttribute="height" multiplier="15:8" id="3P8-pU-KJs"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lX-bs-jjt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lX-bs-jjt">
                                 <rect key="frame" x="20" y="601" width="374" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oj1-bk-b3X">
-                                <rect key="frame" x="147" y="726" width="123" height="22"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title=" Tap to save" image="square.and.arrow.up" catalog="system">
-                                    <color key="titleColor" systemColor="labelColor"/>
+                                <rect key="frame" x="82" y="726" width="250" height="50"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="CZR-yM-Bo5"/>
+                                    <constraint firstAttribute="height" constant="50" id="Wnn-em-TGG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <state key="normal" title="  Tap to save " image="paperplane.fill" catalog="system">
+                                    <color key="titleColor" systemColor="secondarySystemBackgroundColor"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="shareTapped:" destination="EoV-Me-Ktu" eventType="touchUpInside" id="iIR-7d-78m"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyf-EL-dXp">
-                                <rect key="frame" x="302" y="126" width="70" height="30"/>
-                                <state key="normal" title="Add filters"/>
+                                <rect key="frame" x="107" y="138" width="200" height="40"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9aw-Pc-Adx"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="oth-Jd-gFc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="tintColor" systemColor="systemTealColor"/>
+                                <state key="normal" title=" Add sepia filter ">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="editingButton:" destination="EoV-Me-Ktu" eventType="touchUpInside" id="MVU-0U-n0t"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="g0D-bV-3do"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6lX-bs-jjt" firstAttribute="top" secondItem="DJB-i6-dvr" secondAttribute="bottom" constant="42.5" id="8Cb-Qw-4UA"/>
                             <constraint firstItem="DJB-i6-dvr" firstAttribute="centerX" secondItem="2Ac-d5-PRr" secondAttribute="centerX" id="FHt-zM-oXh"/>
-                            <constraint firstItem="g0D-bV-3do" firstAttribute="trailing" secondItem="Lyf-EL-dXp" secondAttribute="trailing" constant="42" id="Jji-rF-O6M"/>
-                            <constraint firstItem="oj1-bk-b3X" firstAttribute="leading" secondItem="g0D-bV-3do" secondAttribute="leading" constant="147" id="Ndp-64-dnY"/>
+                            <constraint firstItem="oj1-bk-b3X" firstAttribute="centerX" secondItem="2Ac-d5-PRr" secondAttribute="centerX" id="KXV-yG-VOd"/>
                             <constraint firstItem="DJB-i6-dvr" firstAttribute="centerY" secondItem="2Ac-d5-PRr" secondAttribute="centerY" id="Q58-GV-dJ4"/>
-                            <constraint firstItem="Lyf-EL-dXp" firstAttribute="top" secondItem="g0D-bV-3do" secondAttribute="top" constant="38" id="Uk0-B9-g1h"/>
+                            <constraint firstItem="Lyf-EL-dXp" firstAttribute="top" secondItem="g0D-bV-3do" secondAttribute="top" constant="50" id="Uk0-B9-g1h"/>
                             <constraint firstItem="DJB-i6-dvr" firstAttribute="leading" secondItem="g0D-bV-3do" secondAttribute="leading" id="X5L-6D-6Jv"/>
-                            <constraint firstItem="g0D-bV-3do" firstAttribute="bottom" secondItem="oj1-bk-b3X" secondAttribute="bottom" constant="114" id="XN2-Ne-T9d"/>
+                            <constraint firstItem="g0D-bV-3do" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="oj1-bk-b3X" secondAttribute="bottom" constant="114" id="XN2-Ne-T9d"/>
                             <constraint firstItem="g0D-bV-3do" firstAttribute="trailing" secondItem="DJB-i6-dvr" secondAttribute="trailing" id="gd7-su-BIm"/>
-                            <constraint firstItem="Lyf-EL-dXp" firstAttribute="leading" secondItem="g0D-bV-3do" secondAttribute="leading" constant="302" id="gs1-57-CqN"/>
-                            <constraint firstItem="DJB-i6-dvr" firstAttribute="top" secondItem="Lyf-EL-dXp" secondAttribute="bottom" constant="181.5" id="kYa-ko-x0H"/>
+                            <constraint firstItem="DJB-i6-dvr" firstAttribute="top" relation="lessThanOrEqual" secondItem="Lyf-EL-dXp" secondAttribute="bottom" constant="160" id="kYa-ko-x0H"/>
                             <constraint firstItem="oj1-bk-b3X" firstAttribute="top" secondItem="6lX-bs-jjt" secondAttribute="bottom" constant="101" id="p5r-bZ-HxS"/>
                             <constraint firstItem="g0D-bV-3do" firstAttribute="trailing" secondItem="6lX-bs-jjt" secondAttribute="trailing" constant="20" id="sB5-Lq-BBA"/>
                             <constraint firstItem="6lX-bs-jjt" firstAttribute="leading" secondItem="g0D-bV-3do" secondAttribute="leading" constant="20" id="ta9-f6-9Ui"/>
-                            <constraint firstItem="g0D-bV-3do" firstAttribute="trailing" secondItem="oj1-bk-b3X" secondAttribute="trailing" constant="144" id="uRh-t9-zrl"/>
+                            <constraint firstItem="Lyf-EL-dXp" firstAttribute="centerX" secondItem="2Ac-d5-PRr" secondAttribute="centerX" id="uMu-pb-wGM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ckW-2v-778"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="ckW-2v-778"/>
                     <connections>
                         <outlet property="detailedImage" destination="DJB-i6-dvr" id="vvB-lY-wZa"/>
                         <outlet property="titleLabel" destination="6lX-bs-jjt" id="sgc-0H-3qu"/>
@@ -169,6 +195,15 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ooO-j6-1Ox">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
+                        <color key="tintColor" systemColor="systemPurpleColor"/>
+                        <color key="barTintColor" systemColor="labelColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" systemColor="systemPurpleColor"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" systemColor="systemPurpleColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -181,12 +216,24 @@
         </scene>
     </scenes>
     <resources>
-        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
